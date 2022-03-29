@@ -24,9 +24,6 @@ class User < ApplicationRecord
   has_many :club_admins,foreign_key: :admin_id,dependent: :destroy
   has_many :administered_clubs,through: :club_admins,source: :club
   has_and_belongs_to_many :clubs
-  has_many :chatroom_users
-  has_many :chatrooms, through: :chatroom_users
-  has_many :messages
   has_many :likes
   has_many :comments,foreign_key: :author_id
   has_many :liked_enablers,through: :likes,source: :liked,source_type: 'Enabler'
