@@ -12,4 +12,8 @@ module ApplicationHelper
 	def bio_display user
 		(user.profile.bio.nil?) ? "My Bio" : user.profile.bio
 	end
+
+	def moderate_post_permission(post,timeline)
+		return (post.enabler.author == current_user) ? true : ((timeline.timeable_type=="Club") ? ((timeline.timeable.owner == current_user.id) ? true : timeline.timeable.has_admin?(current_user) ? true : false ): (timeline.timeable_id==current_user.id ? true : false))
+	end
 end
