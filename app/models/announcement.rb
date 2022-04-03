@@ -5,7 +5,7 @@ class Announcement < ApplicationRecord
 	end
 
 	def notification_links(notification)
-		message = "A new Notification has been Posted"
+		message = "Announcement: #{notification.notifiable.title}"
 		path = announcement_path(self)
 		return message,path
 	end

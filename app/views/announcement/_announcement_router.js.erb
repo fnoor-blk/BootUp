@@ -19,6 +19,9 @@
 <%when :show%>
 	$("#view_id").html("Announcement");
 	$("#main-timeline").html("<%=j render partial:'show',locals:{announcement:@announcement}%>");
+<%when :edit%>
+	$("#view_id").html("Update Announcement");
+	$("#main-timeline").html("<%=j render partial:'form',locals:{announcement:@announcement,action: :update}%>");
 <%end%>
 
 <%=render 'notifications/notification_panel'%>

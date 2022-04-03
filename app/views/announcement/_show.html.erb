@@ -1,2 +1,7 @@
-<%= announcement.title.html_safe%>
-<%= announcement.content%>
+<%if logged_in?(:admin)%>
+	<%=link_to 'Update Announcement', edit_announcement_path, class: "btn btn-warning", remote: true%>
+	<br>
+<%end%>
+
+<%= announcement.title%>
+<%= announcement.content.html_safe%>

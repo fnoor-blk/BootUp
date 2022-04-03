@@ -1,7 +1,7 @@
 class AnnouncementController < ApplicationController
-  before_action :set_announcement, only: [:show]
+  before_action :set_announcement, only: [:show, :edit, :update, :destroy]
   def index
-  	@announcements = Announcement.all.page(params[:page]).per(10)
+  	@announcements = Announcement.all.order('updated_at desc').page(params[:page]).per(10)
   	render partial:"announcement_router.js.erb",locals:{from: :index}
   end
 
@@ -20,6 +20,17 @@ class AnnouncementController < ApplicationController
     render partial:"announcement_router.js.erb",locals:{from: :show}
   end
 
+  def edit
+    render partial: 'announcement_router.js.erb', locals:{from: :edit}
+  end
+
+  def update
+    @announcement.update(annnouncement_params)
+    index()
+  end
+
+  def destroy
+  end
 
   private
 

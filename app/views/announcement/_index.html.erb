@@ -1,12 +1,8 @@
 <%if logged_in?(:admin)%>
 	<%=link_to 'Create Announcement', new_announcement_path, class: "btn btn-primary", remote: true%>
 <%end%>
-
+<%= paginate @announcements, :remote => true %>
 <% @announcements.each do |announcement|%>
-<div class="card">
-	<h5 class="card-title"><%=announcement.title.html_safe%></h5>
-	<hr>
-	<div class="card-text" style=" padding: 0 0 0px 25px; height: 150px; overflow-y: auto;"><%=announcement.content.html_safe%></div>
-	<hr>
-</div>
+<%=link_to announcement.title,announcement_path(announcement),class:"dropdown-item",remote:true%>
 <%end%>
+<%= paginate @announcements, :remote => true %>

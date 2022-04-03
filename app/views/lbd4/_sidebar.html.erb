@@ -23,10 +23,10 @@ image_name||=""%>
                 <%=link_to '<i class="nc-icon nc-grid-45"></i><p>Friends</p>'.html_safe,friendship_index_path,class:"nav-link",id:"friendship_nav",remote: true,onclick: CustomLoader.custom_loader(element_reference_name: 'main-timeline',reference_type:'id',image_url: asset_path('custom_loader/bouncing_balls.gif'),content: 'Loading Friends',text_color: 'gold').html_safe%>
             </li>
             <li class="nav-item">
-                <%=link_to '<i class="nc-icon nc-chat-round"></i><p>Announcements</p>'.html_safe,announcement_index_path,class:"nav-link",id:"announcement_nav",remote: true,onclick: CustomLoader.custom_loader(element_reference_name: 'main-timeline',reference_type:'id',image_url: asset_path('custom_loader/bouncing_balls.gif'),content: 'Loading Friends',text_color: 'gold').html_safe%>
+                <%=link_to '<i class="nc-icon nc-chat-round"></i><p>Announcements</p>'.html_safe,announcement_index_path,class:"nav-link",id:"announcement_nav",remote: true,onclick: CustomLoader.custom_loader(element_reference_name: 'main-timeline',reference_type:'id',image_url: asset_path('custom_loader/bouncing_balls.gif'),content: 'Loading Announcements',text_color: 'gold').html_safe%>
             </li>
             <li class="nav-item">
-                <%=link_to '<i class="nc-icon nc-bell-55"></i><p>Notifications</p>'.html_safe,notifications_path,class:'dropdown-item nav-link',remote: true%>
+                <%=link_to '<i class="nc-icon nc-bell-55"></i><p>Notifications</p>'.html_safe,notifications_path,class:'nav-link',remote: true%>
             </li>
         </ul>
     </div>
