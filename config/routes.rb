@@ -1,4 +1,7 @@
  Rails.application.routes.draw do
+  	resources :announcement do
+				
+  	end
   	get 'news/index',as:'news'
 	require 'sidekiq/web'
 	authenticate :user, lambda { |u| u.roles.include? :admin } do

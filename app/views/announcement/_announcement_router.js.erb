@@ -1,0 +1,21 @@
+<%if notice%>
+	new Noty({
+		timeout: 1000,
+		type: '<%=type rescue "success"%>',
+		layout: 'topCenter',
+		text: '<%=notice%>'
+	}).show();
+<%end%>
+<%case from%>
+<%when :index%>
+	$("#view_id").html("Announcements");
+	$('#announcement_nav').parent().addClass("active");
+	$("#announcement_nav").addClass("active");
+	$("#main-timeline").html("<%=j render partial:'index'%>");
+	$("#index").addClass("active");
+<%when :new%>
+	$("#view_id").html("Create Announcement");
+	$("#main-timeline").html("<%=j render partial:'form',locals:{announcement:@announcement,action: :create}%>");
+<%end%>
+
+<%=render 'notifications/notification_panel'%>
