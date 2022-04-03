@@ -16,6 +16,9 @@
 <%when :new%>
 	$("#view_id").html("Create Announcement");
 	$("#main-timeline").html("<%=j render partial:'form',locals:{announcement:@announcement,action: :create}%>");
+<%when :show%>
+	$("#view_id").html("Announcement");
+	$("#main-timeline").html("<%=j render partial:'show',locals:{announcement:@announcement}%>");
 <%end%>
 
 <%=render 'notifications/notification_panel'%>
