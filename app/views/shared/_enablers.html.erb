@@ -32,11 +32,13 @@
 					<%case enabler_obj.class.to_s%>
 					<%when 'Blog'%>
 						<%=render partial:'blogs/blog_body',locals:{blog:enabler_obj}%>
+					<%when 'Event'%>
+					<%=render partial:'events/event_body',locals:{event:enabler_obj}%>
 					<%end%>
 				<%if moderate_post_permission(enabler_obj,enabler.timeline) %>
-					<%=link_to "Edit", edit_blog_path(enabler_obj),class:"card-link",remote: true%>
+					<%=link_to "Edit", get_enabler_obj_path(enabler_obj,"edit"),class:"card-link",remote: true%>
 				<%end%>
-				<%=link_to "Open", blog_path(enabler_obj),class:"card-link",remote: true%>
+				<%=link_to "Open", get_enabler_obj_path(enabler_obj,"open"),class:"card-link",remote: true%>
 				<%=link_to "Comments", all_comments_path(enabler),class:"card-link",remote: true%>
 			</div>
 			<div class="card-footer">

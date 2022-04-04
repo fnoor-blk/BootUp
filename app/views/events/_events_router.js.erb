@@ -1,0 +1,36 @@
+<%if notice%>
+	new Noty({
+		timeout: 1000,
+		type: '<%=type rescue "success"%>',
+		layout: 'topCenter',
+		text: '<%=notice%>'
+	}).show();
+<%end%>
+<%case from%>
+<%when :new%>
+	$("#form_title").html("Create Event");
+	$("#timeline_form").html("<%=j render partial:'form',locals:{event:@event,action: :create}%>");
+<%when :create%>
+	$("#form_title").html("");
+	$("#timeline_form").html("");
+	if($('#empty_timeline_view').length>0)
+	{
+		$('#timeline_viewport').html("<%=j render partial:'event_timeline_view',locals:{event:@event}%>");
+	}
+	else
+	{
+		$('#timeline_viewport').prepend("<%=j render partial:'event_timeline_view',locals:{event:@event}%>");
+	}
+<%when :edit%>
+	$("#form_title").html("Edit Event");
+	$("#timeline_form").html("<%=j render partial:'form',locals:{event:@event,action: :update}%>");
+	$('#timeline_form').attr("tabindex",-1).focus();
+<%when :update%>
+	$("#form_title").html("");
+	$("#timeline_form").html("");
+	$("#event_<%=@event.id%>").html("<%=j render 'event_body',event:@event%>");
+<%when :show%>
+	$("#post_viewport").html("<%=j render 'show',event:@event%>");
+	$('#timeline_viewport').hide();
+<%end%>
+<%=render 'notifications/notification_panel'%>

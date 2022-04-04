@@ -1,0 +1,20 @@
+
+<div class="card" style="width: 100%;padding: 30px;">
+<img src="<%=asset_path('back_button.png')%>" height="40" width="40" style="cursor: pointer;" onclick="$('#post_viewport').html('');$('#timeline_viewport').show();" title="Back To Timeline" alt="Back To Timeline">
+<div class="card-header text-center">
+<img id="profile_picture" class="" src="<%=profile_display_image(event.enabler.author)%>" alt="..." height="150" width="150" style="background-image:url('<%=asset_path('default_logos/default_profile.png')%>');background-repeat: no-repeat;border-radius: 50%"/>
+	<h1><%=event.title%>&nbsp;<small>-<%=event.enabler.author.display_name%></small></h1>
+</div>
+<div class="card-body">
+	<h4><%=event.description.html_safe%></h4>
+</div>
+<div class="card-footer">
+	<h6>
+		Starting on <%=event.when.strftime('%d-%B-%Y')%> at <%=event.when.strftime('%I:%M:%S %p %z')%><br>
+		Ending <%=event.till.strftime('%d-%B-%Y')%> at <%=event.till.strftime('%I:%M:%S %p %z')%>
+	</h6>
+	<% if event.open%>
+		<p>Open for all</p>
+	<%end%>
+</div>
+</div>

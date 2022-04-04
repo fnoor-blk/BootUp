@@ -1,0 +1,14 @@
+
+	<h5 class="card-title"><%=event.title%></h5>
+	<h6>
+		Starting on <%=event.when.strftime('%d-%B-%Y')%> at <%=event.when.strftime('%I:%M:%S %p %z')%><br>
+		Ending <%=event.till.strftime('%d-%B-%Y')%> at <%=event.till.strftime('%I:%M:%S %p %z')%>
+	</h6>
+	<% if event.open%>
+		<p>Open for all</p>
+	<%end%>
+	<hr>
+	<div class="card-text" style=" padding: 0 0 0px 25px; height: 150px; overflow-y: auto;"><%=event.description.html_safe%></div>
+	<hr>
+
+	

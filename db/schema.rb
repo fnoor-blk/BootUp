@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_01_071350) do
+ActiveRecord::Schema.define(version: 2022_04_03_173549) do
 
   create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "title"
@@ -87,6 +87,16 @@ ActiveRecord::Schema.define(version: 2022_04_01_071350) do
     t.integer "timeline_id"
     t.integer "author_id"
     t.integer "view_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "when"
+    t.datetime "till"
+    t.boolean "open"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

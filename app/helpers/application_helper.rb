@@ -16,4 +16,21 @@ module ApplicationHelper
 	def moderate_post_permission(post,timeline)
 		return (post.enabler.author == current_user) ? true : ((timeline.timeable_type=="Club") ? ((timeline.timeable.owner == current_user.id) ? true : timeline.timeable.has_admin?(current_user) ? true : false ): (timeline.timeable_id==current_user.id ? true : false))
 	end
+
+	def get_enabler_obj_path(enabler_obj, action)
+		case enabler_obj.class.to_s
+		when "Blog"
+			if action == 'open'
+				return blog_path(enabler_obj)
+			elsif action == 'edit'
+				return edit_blog_path(enabler_obj)
+			end
+		when "Event"
+			if action == 'open'
+				return event_path(enabler_obj)
+			elsif action == 'edit'
+				return edit_event_path(enabler_obj)
+			end
+		end	
+	end
 end

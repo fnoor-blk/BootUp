@@ -1,0 +1,22 @@
+<%enabler=event.enabler%>
+<div class="timeline_post_card <%=current_user.preference.display_right_panel ? 'col-md-12' : 'col-md-6' %>" id="event_<%=event.id%>">
+	<div class="card" style="padding: 30px;">
+		<div class="card-body">
+			<div style="padding: 0 0 15px 0px;">
+				<img id="profile_picture" class="" src="<%=profile_display_image(enabler.author)%>" alt="..." height="44" width="44" style="background-image:url('<%=asset_path('default_logos/default_profile.png')%>');background-repeat: no-repeat;border-radius: 50%"/>
+				<label style="vertical-align: text-bottom;padding-left: 10px;">
+					<%= link_to enabler.author.name,profile_path(enabler.author),remote: true%>
+					<% if enabler.timeline.timeable.class.to_s == 'Club'%>
+					&nbsp;
+					>
+					&nbsp;
+					<%= link_to "#{enabler.timeline.timeable.name}",community_path(enabler.timeline.timeable.id),remote: true%>
+					<%end%>
+				</label>
+			</div>
+			<%=render 'events/event_body',event:event%>
+			<%=link_to "Edit", edit_event_path(event),class:"card-link",remote: true%>
+			<%=link_to "Open", event_path(event),class:"card-link",remote: true%>
+		</div>
+	</div>
+</div>

@@ -85,6 +85,10 @@
 
 	resources :blogs do
 	end
+
+	resources :events do
+		
+	end
 	
 	devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
 	root "communities#index"
