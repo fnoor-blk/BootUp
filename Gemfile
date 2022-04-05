@@ -41,7 +41,7 @@ gem 'dropzonejs-rails', '~> 0.8.4'
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
 gem 'has_friendship'
-
+gem 'simple_calendar', '~> 2.4', '>= 2.4.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

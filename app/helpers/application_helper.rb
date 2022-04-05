@@ -33,4 +33,7 @@ module ApplicationHelper
 			end
 		end	
 	end
+	def get_events
+		events = Event.all
+	end
 end

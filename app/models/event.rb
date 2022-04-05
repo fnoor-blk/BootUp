@@ -6,4 +6,12 @@ class Event < ApplicationRecord
 	def create_enabler
 		Enabler.create(enable: self, timeline: timeline, author: author)
 	end
+
+	def start_time
+		self.when
+	end
+
+	def end_time
+		self.till
+	end
 end

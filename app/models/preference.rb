@@ -10,9 +10,9 @@ class Preference < ApplicationRecord
   end
 
   def set_default_values
-  	self.panel_color=[0,1,2,3,4,5].sample
+  	self.panel_color=3
   	self.image_selected = ['sidebar-1.jpg','sidebar-2.jpg','sidebar-3.jpg','sidebar-4.jpg','sidebar-5.jpg'].sample
-    self.display_panel_image = true
+    self.display_panel_image = false
     self.display_right_panel = true
   end
   
